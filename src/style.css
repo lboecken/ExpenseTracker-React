@@ -1,0 +1,11 @@
+body {
+  background: lightblue !important;
+}
+
+table {
+  background: lightgrey !important;
+}
+
+form div label:last-of-type {
+  color: red;
+}

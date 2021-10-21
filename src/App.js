@@ -3,6 +3,7 @@ import Table from './Table';
 import InputForm from './Input';
 import { nanoid } from 'nanoid';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 
 const App = () => {
   const [currentExpenses, setCurrentExpenses] = useState(
@@ -51,6 +52,7 @@ const App = () => {
 
   return (
     <div id='app'>
+      <h1 className='row justify-content-center my-md-4'>Expense Tracker</h1>
       <InputForm submitForm={handleFormSubmit} />
       <Table currentExpenses={currentExpenses} deleteExpense={deleteExpense} />
     </div>
