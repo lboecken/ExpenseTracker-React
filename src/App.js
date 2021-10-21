@@ -4,12 +4,6 @@ import InputForm from './Input';
 import { nanoid } from 'nanoid';
 
 const App = () => {
-  const [formValues, setFormValues] = useState({
-    date: '',
-    amount: '',
-    vendor: '',
-    comment: '',
-  });
   const [currentExpenses, setCurrentExpenses] = useState(
     populateFromLocalStorage()
   );
@@ -29,18 +23,13 @@ const App = () => {
     localStorage.setItem(expense[4], JSON.stringify(expense));
   }
 
-  function handleFormChange(event) {
-    event.preventDefault();
-    setFormValues({ ...formValues, [event.target.name]: event.target.value });
-  }
-
-  function handleFormSubmit(event) {
+  function handleFormSubmit(data, event) {
     event.preventDefault();
     const newExpense = [
-      formValues.date,
-      formValues.amount,
-      formValues.vendor,
-      formValues.comment,
+      data.date,
+      data.amount,
+      data.vendor,
+      data.comment,
       nanoid(),
     ];
     setCurrentExpenses([...currentExpenses, newExpense]);
@@ -61,7 +50,7 @@ const App = () => {
 
   return (
     <div id='app'>
-      <InputForm updateState={handleFormChange} submitForm={handleFormSubmit} />
+      <InputForm submitForm={handleFormSubmit} />
       <Table currentExpenses={currentExpenses} deleteExpense={deleteExpense} />
     </div>
   );
