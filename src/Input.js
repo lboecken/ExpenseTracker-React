@@ -9,27 +9,19 @@ function InputForm(props) {
   } = useForm();
 
   return (
-    <form onSubmit={handleSubmit(props.submitForm)}>
-      <label>
-        Date
-        <input {...register('date', { required: true })} type='date' />
-        {errors.date && <span>This field is required.</span>}
-      </label>
-      <label>
-        Amount:
-        <input {...register('amount', { required: true })} type='number' />
-        {errors.amount && <span>This field is required.</span>}
-      </label>
-      <label>
-        Vendor:
-        <input {...register('vendor', { required: true })} type='text' />
-        {errors.vendor && <span>This field is required.</span>}
-      </label>
-      <label>
-        Comment:
-        <input {...register('comment', { required: true })} type='text' />
-        {errors.comment && <span>This field is required.</span>}
-      </label>
+    <form onSubmit={handleSubmit(props.submitForm)} class='form'>
+      <label>Date</label>
+      <input {...register('date', { required: true })} type='date' />
+      {errors.date && <span>This field is required.</span>}
+      <label>Amount:</label>
+      <input {...register('amount', { required: true })} type='number' />
+      {errors.amount && <span>This field is required.</span>}
+      <label>Vendor:</label>
+      <input {...register('vendor', { required: true })} type='text' />
+      {errors.vendor && <span>This field is required.</span>}
+      <label>Comment:</label>
+      <input {...register('comment', { required: true })} type='text' />
+      {errors.comment && <span>This field is required.</span>}
       <input type='submit' value='Track New Expense' />
     </form>
   );

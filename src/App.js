@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Table from './Table';
 import InputForm from './Input';
 import { nanoid } from 'nanoid';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const [currentExpenses, setCurrentExpenses] = useState(
